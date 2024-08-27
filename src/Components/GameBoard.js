@@ -4,14 +4,31 @@ import GameCircle from "./GameCircle";
 const GameBoard = () => {
     return (
     <div>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
-        <GameCircle/>
+        <GameCircle id={1}>
+            red
+        </GameCircle>
+        <GameCircle id={2}>
+            blue
+        </GameCircle>
+        <GameCircle id={3}>
+            red
+        </GameCircle>
+        <GameCircle id={4}>
+            blue
+        </GameCircle>
+        <GameCircle id={5}>
+            red
+        </GameCircle>
+        <GameCircle id={6}>
+            blue
+        </GameCircle>
+        <GameCircle id={7}>
+            red
+        </GameCircle>
+        <GameCircle id={8 }>
+            blue
+        </GameCircle>
+        
     </div>
     )
 }
