@@ -4,29 +4,29 @@ import GameCircle from "./GameCircle";
 const GameBoard = () => {
     return (
     <div>
-        <GameCircle id={1}>
-            red
+        <GameCircle id={1} color="red">
+            <span style={{color: 'red'}}>red</span>
         </GameCircle>
-        <GameCircle id={2}>
-            blue
+        <GameCircle id={2} color="blue">
+            <span style={{color: 'blue'}}>blue</span>
         </GameCircle>
         <GameCircle id={3}>
-            red
+            <span style={{color: 'red'}}>red</span>
         </GameCircle>
         <GameCircle id={4}>
-            blue
+            <span style={{color: 'blue'}}>blue</span>
         </GameCircle>
         <GameCircle id={5}>
-            red
+            <span style={{color: 'red'}}>red</span>
         </GameCircle>
         <GameCircle id={6}>
-            blue
+            <span style={{color: 'blue'}}>blue</span>
         </GameCircle>
         <GameCircle id={7}>
-            red
+            <span style={{color: 'red'}}>red</span>
         </GameCircle>
         <GameCircle id={8 }>
-            blue
+            <span style={{color: 'blue'}}>blue</span>
         </GameCircle>
         
     </div>
