@@ -1,54 +1,51 @@
-import React from "react";
+import React, {useState} from "react";
+import '../Game.css';
+import Header from "./Header";
+import Footer from "./Footer";
 import GameCircle from "./GameCircle";
 
+const NO_CIRCLES = 16;
+const NO_PLAYER = 0;
+const PLAYER_1 = 1;
+const PLAYER_2 = 2
+
 const GameBoard = () => {
-    const style = {
-        display: 'grid', 
-        gridTemplateColumns:'1fr 1fr 1fr 1fr', 
-        gridTemplateRows:'1fr 1fr 1fr 1fr', 
-        padding:20, 
-        width:'500px',
-        position: 'absolute',
-        left: '50%',
-        marginLeft:'-250px',
-        top:'20%'
+    const [gameBoard, setGameBoard] = useState(Array(16).fill(NO_PLAYER));
+    const [currentPlayer, setCurrentPlayer] = useState(PLAYER_1);
+
+    const initBoard = () => {
+        const circles = [];
+        for (let i = 0; i < NO_CIRCLES; i++) {
+            circles.push(renderCircle(i));
+        }
+        return circles;
     }
+    
+    const circleClicked = (id) => {
+        console.log('circle clicked:' + id);
+
+        setGameBoard(prev => {
+            return prev.map((circle, pos) =>  {
+                if (pos === id) return currentPlayer;
+                return circle;
+            })
+        }) 
+
+        setCurrentPlayer(currentPlayer === PLAYER_1 ? PLAYER_2 : PLAYER_1);
+    }
+
+    const renderCircle = id => {
+        return <GameCircle key={id} id={id} className={`player_${gameBoard[id]}`} onCircleClicked={circleClicked}/>
+    }
+
     return (
-    <div style={style}>
-        <GameCircle id={1} color="red">
-        </GameCircle>
-        <GameCircle id={2} color="blue">
-        </GameCircle>
-        <GameCircle id={3} color="red">
-        </GameCircle>
-        <GameCircle id={4} color="blue">
-        </GameCircle>
-        <GameCircle id={5} color="red">
-        </GameCircle>
-        <GameCircle id={6} color="blue">
-        </GameCircle>
-        <GameCircle id={7} color="red">
-        </GameCircle>
-        <GameCircle id={8} color="blue">
-        </GameCircle>
-        <GameCircle id={9} color="red">
-        </GameCircle>
-        <GameCircle id={10} color="blue">
-        </GameCircle>
-        <GameCircle id={11} color="red">
-        </GameCircle>
-        <GameCircle id={12} color="blue">
-        </GameCircle>
-        <GameCircle id={13} color="red">
-        </GameCircle>
-        <GameCircle id={14} color="blue">
-        </GameCircle>
-        <GameCircle id={15} color="red">
-        </GameCircle>
-        <GameCircle id={16} color="blue">
-        </GameCircle>
-        
-    </div>
+    <>
+        <Header/>
+            <div className="gameBoard">
+                {initBoard()}
+            </div>
+            <Footer/>
+    </>
     )
 }
 
