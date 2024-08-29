@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react'
+
 import '../Game.css';
 
 
 const GameCircle = ({id, children, className, onCircleClicked}) => {
     return (
-        <div className={`gameCircle ${className}`} onClick={(ev) => onCircleClicked(id)}>
+        <div className={`gameCircle ${className}`}  onClick={() => onCircleClicked(id)}>
             {children}
         </div>
-        
+
     )
 }
 
